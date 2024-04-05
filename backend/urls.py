@@ -14,15 +14,17 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
+# Importing necessary modules
 from django.contrib import admin
-from django.urls import path, include
-from rest_framework_simplejwt import views as jwt_views
-from django.views.generic import RedirectView
- 
+# Importing include function
+from django.urls import path, include  
+
+# List of URL patterns
 urlpatterns = [
+    # Path for accessing the admin interface
     path('admin/', admin.site.urls),
-    path('', RedirectView.as_view(url='admin/', permanent=True)), 
-    path('token/', jwt_views.TokenObtainPairView.as_view(), name='token_obtain_pair'),
-    path('token/refresh/', jwt_views.TokenRefreshView.as_view(), name='token_refresh'),
+    
+    # Path for including URLs from the 'authentification' app
     path('', include('authentification.urls')),
 ]
