@@ -23,8 +23,8 @@ from django.urls import path, include
 # List of URL patterns
 urlpatterns = [
     # Path for accessing the admin interface
-    path('admin/', admin.site.urls),
-    
-    # Path for including URLs from the 'authentification' app
-    path('', include('authentification.urls')),
+    path('admin/', admin.site.urls),                                  
+    path('', include('authentification.urls')), # Path for including URLs from the 'authentification' app
 ]
+
+
